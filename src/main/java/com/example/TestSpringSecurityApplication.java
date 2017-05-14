@@ -99,6 +99,9 @@ class AuthFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		/*
+		 * Authority in Spring Security is always prefixed ROLE_ with role (USER role is ROLE_USER authority, ADMIN role is ROLE_ADMIN authority) 
+		 */
 		List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
 		User user = new User("test", "autologin", authorities);
 		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
