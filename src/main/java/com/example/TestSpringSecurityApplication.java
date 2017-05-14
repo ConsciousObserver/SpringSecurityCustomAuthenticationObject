@@ -68,7 +68,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	/*
-	 * Disable default registration
+	 * Disable default registration, otherwise AuthFilter will be twice.
 	 */
 	@Bean
 	public FilterRegistrationBean authFilterRegistraitionDisable (AuthFilter filter) {
